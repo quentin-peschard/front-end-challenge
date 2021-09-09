@@ -1,22 +1,32 @@
 const listElement = document.querySelector('.list-div');
+const footerElement = document.querySelector('.radios-footer');
 
 fetch("https://teclead.de/recruiting/radios")
   .then(resp => resp.json())
   .then(data => {
     const radios = data.radios;
-    radios.map(radio => {
+    radios.forEach(radio => {
       const radioContent = `<div class='radios-list'>
-        <p>${radio.name}</p>
-        <p><strong>${radio.frequency}</strong></p>
+        <div class='radios-info'>
+          <p>${radio.name}</p>
+          <p><strong>${radio.frequency}</strong></p>
+        </div>
+        <div class='radios-image hidden'>
+          <i class="fas fa-plus-circle"></i>
+          <img src='${radio.image}'>
+          <i class="fas fa-minus-circle"></i>
+        </div>
       </div>`;
-      const imageContent = `<div class='radios-image'>
-        <img src='${radio.image}'>
-      </div>`
+
       listElement.insertAdjacentHTML("beforeend", radioContent);
-      const eachRadio = document.querySelector('.radios-list');
-      const event = eachRadio.addEventListener('click', (event) => {
-        console.log(event);
-      });
+      const imageElement = document.querySelector('.radios-image');
+      document.querySelectorAll('.radios-list').forEach( item => {
+        item.addEventListener('click', event => {
+          imageElement.classList.remove('hidden');
+          const footerContent = `<p>${radio.name}</p>`
+          footerElement.insertAdjacentHTML("beforeend", footerContent);
+        })
+      })
     });
   });
 ;

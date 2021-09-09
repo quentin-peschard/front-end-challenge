@@ -7,11 +7,9 @@ body {
 
 .radio-card {
   background-color: #2e2e38;
-  min-height: 330px;
   width: 250px;
   margin: 50px;
   border-radius: 25px;
-  position: relative;
 }
 
 .radio-card p {
@@ -41,16 +39,35 @@ body {
   color: white;
 }
 
-
-.radios-list {
-  padding: 15px;
+.radios-info {
+  margin: 15px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #3f3f49;
 }
 
-.radios-list:last-child{
-  border-bottom: none;
+.radios-list:last-of-type .radios-info {
+  border: none;
+}
+
+.radios-image {
+  padding: 5px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.radios-image img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid #3f3f49;
+}
+
+.radios-image i {
+  font-size: 25px;
+  color: rgb(158, 158, 158);
 }
 
 .radios-footer {
@@ -58,8 +75,6 @@ body {
   height: 60px;
   border-radius: 0 0 25px 25px;
   border-top: 1px solid #3f3f49;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   text-align: center;
 }
@@ -68,4 +83,8 @@ body {
   padding-top: 5px;
   font-size: 10px;
   color: #ddab64;
+}
+
+.hidden {
+  display: none;
 }
